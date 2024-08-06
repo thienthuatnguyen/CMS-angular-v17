@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-import { environment } from 'src/environments/environment';
-import { User } from './model';
 import { BehaviorSubject } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 export interface SessionState {
   loggedIn: boolean;
@@ -19,7 +18,7 @@ export class SessionService {
     loggedIn: false,
     message: notSignedInMessage,
   });
-  accessToken: string;
+  public accessToken: string = '';
 
   public get isLoggedIn(): boolean {
     return this._isLoggedIn;
@@ -31,9 +30,9 @@ export class SessionService {
   constructor(private http: HttpClient) {}
 
   signin(email: string, password: string) {
-    const root = environment.API;
+    const root = environment.apiUrl;
     const signinUrl = `${root}/signin/`;
-    const body: Partial<User> = {
+    const body: Partial<any> = {
       email, // 'john@contoso.com',
       password, // '1234'
     };
@@ -58,7 +57,7 @@ export class SessionService {
   }
 
   logout() {
-    this.accessToken = null;
+    this.accessToken = '';
     this.sessionStateSubject.next({ loggedIn: false, message: notSignedInMessage });
     this._isLoggedIn = false;
   }

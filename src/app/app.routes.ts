@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { NotFoundComponent } from './share_components/404/not-found.component';
 
 export const routes: Routes = [
   // {
@@ -37,13 +38,7 @@ export const routes: Routes = [
   //       (m) => m.CallbackModule
   //     ),
   // },
-  // {
-  //   path: '**',
-  //   loadChildren: () =>
-  //     import('./features/not-found/not-found.module').then(
-  //       (m) => m.NotFoundModule
-  //     ),
-  // },
+  { path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({
