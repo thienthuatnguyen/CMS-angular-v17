@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { NotFoundComponent } from './share_components/404/not-found.component';
+import { SignInComponent } from './modules/auth/signin-page/signin-page.component';
 
 export const routes: Routes = [
   // {
@@ -38,6 +39,7 @@ export const routes: Routes = [
   //       (m) => m.CallbackModule
   //     ),
   // },
+  { path: 'signin', component: SignInComponent },
   { path: '**', component: NotFoundComponent },
 ];
 
