@@ -6,4 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./signin-page.component.sass']
 })
 export class SignInComponent {
+  public value = 'Clear me';
 }

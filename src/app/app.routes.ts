@@ -1,20 +1,19 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { NotFoundComponent } from './share_components/404/not-found.component';
-import { SignInComponent } from './modules/auth/signin-page/signin-page.component';
 
 export const routes: Routes = [
-  // {
-  //   path: '',
-  //   pathMatch: 'full',
-  //   loadChildren: () =>
-  //     import('./features/home/home.module').then((m) => m.HomeModule),
-  // },
-  // {
-  //   path: 'profile',
-  //   loadChildren: () =>
-  //     import('./features/profile/profile.module').then((m) => m.ProfileModule),
-  // },
+  {
+    path: '',
+    pathMatch: 'full',
+    loadChildren: () =>
+      import('./modules/home/home.module').then((m) => m.HomeModule),
+  },
+  {
+    path: 'auth',
+    loadChildren: () =>
+      import('./modules/auth/auth.module').then((m) => m.AuthModule),
+  },
   // {
   //   path: 'public',
   //   loadChildren: () =>
@@ -39,7 +38,6 @@ export const routes: Routes = [
   //       (m) => m.CallbackModule
   //     ),
   // },
-  { path: 'signin', component: SignInComponent },
   { path: '**', component: NotFoundComponent },
 ];
 

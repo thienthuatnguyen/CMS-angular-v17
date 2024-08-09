@@ -5,8 +5,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { AppRoutesModule } from './app.routes';
-import { HeaderComponent } from './share_components/header/header.component';
-
+import { AuthRoutesModule } from './modules/auth/auth.routes';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -18,6 +18,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     BrowserModule,
     HttpClientModule,
     AppRoutesModule,
+    AuthRoutesModule,
+    BrowserAnimationsModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
