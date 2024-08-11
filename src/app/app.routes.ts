@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { NotFoundComponent } from './share_components/404/not-found.component';
+import { isAuthenticatedGuard } from './core';
+import { authLoadGuard } from './core/guards/auth-load.guard';
 
 export const routes: Routes = [
   {
@@ -14,30 +16,21 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./modules/auth/auth.module').then((m) => m.AuthModule),
   },
-  // {
-  //   path: 'public',
-  //   loadChildren: () =>
-  //     import('./features/public/public.module').then((m) => m.PublicModule),
-  // },
-  // {
-  //   path: 'protected',
-  //   loadChildren: () =>
-  //     import('./features/protected/protected.module').then(
-  //       (m) => m.ProtectedModule
-  //     ),
-  // },
+  {
+    path: 'product',
+    loadChildren: () =>
+    import('./modules/product/product.module').then((m) => m.ProductModule),
+    canActivate: [isAuthenticatedGuard],
+  },
+
   // {
   //   path: 'admin',
-  //   loadChildren: () =>
-  //     import('./features/admin/admin.module').then((m) => m.AdminModule),
+  //   loadChildren: () => import('./admin/routes').then((m) => m.routes),
+  //   canMatch: [authLoadGuard],
+  //   // data: { preload: true },
   // },
-  // {
-  //   path: 'callback',
-  //   loadChildren: () =>
-  //     import('./features/callback/callback.module').then(
-  //       (m) => m.CallbackModule
-  //     ),
-  // },
+
+  
   { path: '**', component: NotFoundComponent },
 ];
 

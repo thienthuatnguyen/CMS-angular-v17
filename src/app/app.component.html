@@ -1,6 +1,12 @@
 <!-- <header></header> -->
 <main class="main">
   <div class="content">
-    <router-outlet />
+
+    <div [hidden]="!busy">
+      <progress class="progress is-medium is-info" max="100">45%</progress>
+    </div>
+    <div [hidden]="busy">
+      <router-outlet></router-outlet>
+    </div>
   </div>
 </main>

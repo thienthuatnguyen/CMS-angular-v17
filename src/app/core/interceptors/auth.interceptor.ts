@@ -27,6 +27,8 @@ export class AuthInterceptor implements HttpInterceptor {
     console.groupCollapsed(`${prefixReq} Auth`);
     console.log(`Adding Auth header`);
     console.groupEnd();
+
+    console.log('tao ne')
     // Pass on the cloned request instead of the original request.
     return next.handle(authReq).pipe(this.handleErrors);
   }
