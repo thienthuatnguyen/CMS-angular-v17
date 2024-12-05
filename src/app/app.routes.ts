@@ -19,8 +19,13 @@ export const routes: Routes = [
   {
     path: 'product',
     loadChildren: () =>
-    import('./modules/product/product.module').then((m) => m.ProductModule),
+      import('./modules/product/product.module').then((m) => m.ProductModule),
     canActivate: [isAuthenticatedGuard],
+  },
+
+  {
+    path: 'parent',
+    loadChildren: () => import('./modules/demo-router/demo-router.module').then((m) => m.DemoRouterModule)
   },
 
   // {
@@ -30,7 +35,7 @@ export const routes: Routes = [
   //   // data: { preload: true },
   // },
 
-  
+
   { path: '**', component: NotFoundComponent },
 ];
 
