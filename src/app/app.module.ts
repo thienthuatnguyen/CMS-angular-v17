@@ -7,6 +7,7 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { AppRoutesModule } from './app.routes';
 import { AuthRoutesModule } from './modules/auth/auth.routes';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CommonModule } from '@angular/common';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -16,6 +17,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   imports: [
     BrowserModule,
+    CommonModule, 
     HttpClientModule,
     AppRoutesModule,
     AuthRoutesModule,

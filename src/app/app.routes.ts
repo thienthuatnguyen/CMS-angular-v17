@@ -28,6 +28,11 @@ export const routes: Routes = [
     loadChildren: () => import('./modules/demo-router/demo-router.module').then((m) => m.DemoRouterModule)
   },
 
+  {
+    path: 'demo-store',
+    loadChildren: () => import('./modules/demo-store/demo-store.module').then((m) => m.DemoStoreModule)
+  },
+
   // {
   //   path: 'admin',
   //   loadChildren: () => import('./admin/routes').then((m) => m.routes),

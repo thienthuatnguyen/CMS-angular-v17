@@ -26,3 +26,6 @@ export const routes: Routes = [
   exports: [RouterModule]
 })
 export class DemoRoutesModule { }
+
+
+// reade more at: https://angular.dev/guide/routing/router-reference#router-terminology
