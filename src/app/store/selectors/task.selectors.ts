@@ -1,5 +1,5 @@
 import { createSelector } from '@ngrx/store';
-import { AppState } from '../reducers/task.reducer';
+import { AppState } from '../../models/store.model';
 
 export const selectTasks = (state: AppState) => state.tasks;
 

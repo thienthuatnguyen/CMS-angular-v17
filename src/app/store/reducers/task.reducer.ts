@@ -1,13 +1,8 @@
+import { AppState, initialState } from "../../models/store.model";
 import { Task } from "../../models/task.model";
 import { addTask, deleteTask, updateTask } from "../actions/task.actions";
 
-export interface AppState {
-  tasks: Task[];
-}
 
-export const initialState: AppState = {
-  tasks: []
-};
 
 export function taskReducer(state = initialState, action: any): AppState {
   switch (action.type) {
